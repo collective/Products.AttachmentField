@@ -91,9 +91,10 @@ import Globals, string, re, os, sys, time, mimetypes
 from StringIO import StringIO
 from Acquisition import Implicit, aq_base, aq_parent
 from OFS.Traversable import Traversable
-from zope.app.content_types import guess_content_type
+from zope.contenttype import guess_content_type
 from OFS.Image import Pdata
 import libxml2, libxslt, zipfile, tempfile
+from zope.interface import implements
 
 # archetypes support
 try:

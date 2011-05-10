@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-_home = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'Products', 'PloneGlossary')
+_home = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'Products', 'AttachmentField')
 
 version = open(os.path.join(_home, 'version.txt')).read().strip()
 
