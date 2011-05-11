@@ -59,7 +59,7 @@ def flattenInterfaces(lst):
         if not intf in ret:
             ret.append(intf)
     return ret
-    
+
 
 class TestInterface(ZopeTestCase.ZopeTestCase):
 
@@ -99,7 +99,7 @@ class TestInterface(ZopeTestCase.ZopeTestCase):
         not_defined = []
         tests = dir(self)
         count = 0
-        
+
         # Check interface for each and every class
         ignore = getattr(self, "ignore_interfaces", [])
         for klass in self.klasses:
@@ -127,8 +127,8 @@ class TestInterface(ZopeTestCase.ZopeTestCase):
                 count,
                 string.join(not_defined, ", "),
                 )
-        
-        
+
+
 ##    def test03ClassSecurityInfo(self):
 ##        """
 ##        This method tests that each and every method has a ClassSecurityInfo() declaration
@@ -136,7 +136,7 @@ class TestInterface(ZopeTestCase.ZopeTestCase):
 ##        """
 ##        not_defined = []
 ##        count = 0
-        
+
 ##        # Check interface for each and every class
 ##        ignore = getattr(self, "ignore_interfaces", [])
 ##        for klass in self.klasses:
@@ -146,7 +146,7 @@ class TestInterface(ZopeTestCase.ZopeTestCase):
 
 ##            # Flatten interfaces
 ##            intfs = flattenInterfaces(intfs)
-            
+
 ##            # Now check the resulting class to see if the mapping was made
 ##            # correctly. Note that this uses carnal knowledge of the internal
 ##            # structures used to store this information!
@@ -166,4 +166,3 @@ class TestInterface(ZopeTestCase.ZopeTestCase):
 ##                count,
 ##                string.join(not_defined, ", "),
 ##                )
-        

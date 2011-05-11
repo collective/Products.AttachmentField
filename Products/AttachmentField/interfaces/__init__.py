@@ -22,4 +22,3 @@ __version__ = "$Revision$"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
 # $Id$
 __docformat__ = 'restructuredtext'
-

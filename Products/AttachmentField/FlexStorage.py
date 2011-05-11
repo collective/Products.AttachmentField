@@ -40,7 +40,7 @@ try:
     savepoint = transaction.savepoint
 except ImportError:
     def savepoint(**kwargs):
-         get_transaction().commit(1)
+        get_transaction().commit(1)
 
 SAVEPOINT_INTERVAL = 100
 
@@ -48,7 +48,7 @@ try :
     from iw.fss.FileSystemStorage  import FileSystemStorage
     fssproduct = 'iw.fss'
 except :
-    fssproduct = 'Products.FileSystemStorage'    
+    fssproduct = 'Products.FileSystemStorage'
 
 ## This list contains all the storage that can be used
 ## First data is the import statement. If import fails, the next storage is tried
@@ -206,7 +206,7 @@ class FlexStorage(StorageLayer):
     security.declarePrivate('migrateContent')
     def migrateContent(self, old_storage, new_storage, obj, fieldnames, out):
         """Change the storage backend of one content.
-            
+
         @param old_storage: old storage where we get the data (and remove it)
         @param new_storage: new storage where we put this data
         @param obj: object to work on it
@@ -246,4 +246,3 @@ class FlexStorage(StorageLayer):
                 f.set(obj, "DELETE_FILE")
 
             print >> out, ".",
-

@@ -33,7 +33,7 @@ from AccessControl import ClassSecurityInfo
 from OFS.PropertyManager import PropertyManager
 from OFS.SimpleItem import SimpleItem
 from Products.CMFCore.utils import UniqueObject
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from zExceptions import BadRequest
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 
@@ -94,7 +94,7 @@ class AttachmentFieldTool(
          'mode': 'w',
          'select_variable' : 'getAvailableContentDisposition'
          },
-        
+
         {'id': 'flex_storage_backend',
          'label': 'Choose backend type through the configlet',
          'type': 'string',
@@ -105,7 +105,7 @@ class AttachmentFieldTool(
     # Properties values
     contentDisposition = 'attachment'
     flex_storage_backend = 'AttributeStorage'
-    
+
     manage_options = (
         AttachmentService.AttachmentService.manage_options +
         PropertyManager.manage_options
@@ -207,7 +207,7 @@ class AttachmentFieldTool(
                         field = fld.getFields()[index + 1]
 
             if not field:
-                    raise BadRequest("Attachment download called on unexistent field: %s" % field_name)
+                raise BadRequest("Attachment download called on unexistent field: %s" % field_name)
 
         widget = field.widget
         if hasattr(widget, "contentDisposition"):

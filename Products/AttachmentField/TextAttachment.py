@@ -49,7 +49,7 @@ class TextAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"%s"
     index_encoding = None
-    
+
     preview_path = program
     preview_arguments = r"%s"
     preview_encoding = None

@@ -55,7 +55,7 @@ class MSExcelAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"-xc:0-%d -xr:0-%d"%(MAX_COLS_EXCEL, MAX_ROWS_EXCEL) + r" %s"
     index_encoding = 'utf8'
-    
+
     preview_path = program
     preview_arguments = r"-nh -xc:0-%d -xr:0-%d"%(MAX_COLS_EXCEL, MAX_ROWS_EXCEL) + r" %s"
     preview_format = "html"

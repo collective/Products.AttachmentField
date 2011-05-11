@@ -53,7 +53,7 @@ class PDFAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"%s -enc UTF-8 -"
     index_encoding = "utf8"
-    
+
     preview_path = program
     preview_arguments = r"%s -enc UTF-8 -layout -"
     preview_format = "text"

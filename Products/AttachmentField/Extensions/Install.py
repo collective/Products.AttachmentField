@@ -76,4 +76,3 @@ def uninstall(self):
     print >> out, "Successfully uninstalled %s." % PROJECTNAME
 
     return out.getvalue()
-

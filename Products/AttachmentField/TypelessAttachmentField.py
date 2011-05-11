@@ -34,7 +34,7 @@ from Products.CMFCore.utils import UniqueObject
 from Globals import InitializeClass
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Acquisition import Implicit
-from AccessControl import Role 
+from AccessControl import Role
 
 from Products.AttachmentField import PROJECTNAME
 
@@ -87,7 +87,7 @@ class TypelessAttachmentField(SimpleItem, BaseObject, Role.RoleManager):
     archetype_name = "TypelessAttachmentField"
     meta_type = "TypelessAttachmentField"
     isPrincipiaFolderish = 0
- 
+
     schema = Schema(
         (
         AttachmentField.AttachmentField(
@@ -97,5 +97,5 @@ class TypelessAttachmentField(SimpleItem, BaseObject, Role.RoleManager):
             ),
         ),
     )
-    
+
 registerType(TypelessAttachmentField, PROJECTNAME)

@@ -52,7 +52,7 @@ class MSPowerpointAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"%s"
     index_encoding = 'utf8'
-    
+
     preview_path = program
     preview_arguments = r"%s"
     preview_encoding = 'utf8'

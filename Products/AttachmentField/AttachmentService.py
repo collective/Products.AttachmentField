@@ -331,6 +331,3 @@ class AttachmentService(Folder):
 
 
 InitializeClass(AttachmentService)
-
-
-

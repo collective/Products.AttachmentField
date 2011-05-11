@@ -55,7 +55,7 @@ class ImageAttachment(AttachmentHandler.AbstractHandler):
     index_path = None
     index_arguments = None
     index_encoding = None
-    
+
     preview_path = None
     preview_arguments = None
     preview_encoding = None

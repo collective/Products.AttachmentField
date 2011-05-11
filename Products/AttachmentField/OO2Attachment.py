@@ -63,7 +63,7 @@ class OO2Attachment(AttachmentHandler.AbstractHandler):
     preview_arguments = None
     preview_encoding = None
     preview_format = None
-    
+
 
 
 AttachmentHandler.registerHandler(OO2Attachment)

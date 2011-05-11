@@ -112,7 +112,7 @@ except ImportError:
 try:
     import PIL.Image
     isPilAvailable = 1
-except ImportError: 
+except ImportError:
     isPilAvailable = 0
 
 
@@ -154,7 +154,7 @@ class oo_to_html:
     def name(self):
         return self.__name__
 
-    
+
     def convert_(self, data, **kwargs):
         """
         special converter for AF
@@ -196,7 +196,7 @@ class oo_to_html:
 
 
     def cook(self, document, encoding=None):
-        """ 
+        """
         object usable converter
         render the document by xslt to html
         document needs to be a DynZip instance
@@ -218,15 +218,15 @@ class oo_to_html:
         tmpfiles=[]
         for f in (('stylesFileURL','styles.xml'), ('metaFileURL','meta.xml')):
             # get unique filename and write contents to this file
-                try:
-                    t=tempfile.mktemp()
-                    tmpfiles.append(t)
-                    file=open(t, 'wb', -1)
-                    file.write(document.read(f[1]))
-                    file.close()
-                    # update the parameters to reflect the temporary files
-                    params.update({f[0]: "'%s'" % (t)})
-                except: pass
+            try:
+                t=tempfile.mktemp()
+                tmpfiles.append(t)
+                file=open(t, 'wb', -1)
+                file.write(document.read(f[1]))
+                file.close()
+                # update the parameters to reflect the temporary files
+                params.update({f[0]: "'%s'" % (t)})
+            except: pass
 
         # libxml2 encoding translation
         xmlOutEnc=self.getOutEncoding(default=encoding)
@@ -261,34 +261,34 @@ class oo_to_html:
         """
         parse all metadata from xml
         """
-        
+
         headers={}
-        
+
         # libxml2 encoding translation
         xmlOutEnc=self.getOutEncoding(default='utf8')
 
         # create xpath context
         doc=libxml2.parseDoc(xml)
         ctxt=doc.xpathNewContext()
-        
+
         # register openoffice xml namespaces
         ctxt.xpathRegisterNs( "office", "http://openoffice.org/2000/office")
         ctxt.xpathRegisterNs( "meta", "http://openoffice.org/2000/meta")
-        
+
         # register dublincore namespace
         ctxt.xpathRegisterNs( "dc", "http://purl.org/dc/elements/1.1/")
-        
+
         dict_list   = ("//meta:user-defined", "//meta:document-statistic")
         string_list = ("//meta:generator", "//dc:title", "//dc:description", "//dc:subject",
                        "//meta:creation-date", "//dc:date",
                        "//dc:language", "//meta:editing-cycles", "//meta:editing-duration")
         list_list   = ("//meta:keywords/child::meta:keyword", )
-                     
+
         for c in string_list:
             r = ctxt.xpathEval("%s" % c)
             name=c.split(":")[-1]
             if len(r): headers[name] = unicode(r[0].get_content(), 'UTF-8', 'replace').encode(xmlOutEnc, 'replace')
-            
+
         for c in list_list:
             r = ctxt.xpathEval("%s" % c)
             name=c.split(":")[-1]
@@ -299,22 +299,22 @@ class oo_to_html:
 
         # cleanup
         doc.freeDoc()
-        ctxt.xpathFreeContext()       
+        ctxt.xpathFreeContext()
 
         return headers
 
-                        
+
     def parseImages(self, html):
         """
         parses all images out of the xml code
         """
-      
+
         matches={}
 
         # create xpath context
         doc=libxml2.parseDoc(html)
         ctxt=doc.xpathNewContext()
-                                                                                               
+
         # get all img tags
         res=ctxt.xpathEval("//img")
         for img in res:
@@ -335,13 +335,13 @@ class oo_to_html:
 
 
     def parseText(self, text):
-        """ 
+        """
         parse the raw xml content returning headers and body
         doing xpath queries
         we assume that content is utf-8 encoded
         """
 
-        # define vars 
+        # define vars
         styles = ''
 
         # libxml2 encoding translation
@@ -354,11 +354,11 @@ class oo_to_html:
         # get body
         res=ctxt.xpathEval("//body")
         if len(res): text=res[0].serialize(encoding=xmlOutEnc, format=1)[6:-7]
-        
-        # get styles 
+
+        # get styles
         res=ctxt.xpathEval("//style")
         if len(res): styles=res[0].serialize(encoding=xmlOutEnc, format=1)
-        
+
         # cleanup
         doc.freeDoc()
         ctxt.xpathFreeContext()
@@ -518,4 +518,3 @@ def init_zip(data):
 
     # create zip extraction context
     return zipfile.ZipFile(data, 'rb')
-

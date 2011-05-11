@@ -11,10 +11,10 @@
 size=long(size)
 
 if size>(1024L*1024L*1024L):
-  return "%2.2f Gb" % float(float(size)/(1024L*1024L*1024L))
+    return "%2.2f Gb" % float(float(size)/(1024L*1024L*1024L))
 elif size>(1024L*1024L):
-  return "%2.2f Mb" % float(float(size)/(1024L*1024L))
+    return "%2.2f Mb" % float(float(size)/(1024L*1024L))
 elif size>1024L:
-  return "%2.2f Kb" % float(float(size)/(1024L))
+    return "%2.2f Kb" % float(float(size)/(1024L))
 else:
-  return "%2d Bytes" % size
+    return "%2d Bytes" % size

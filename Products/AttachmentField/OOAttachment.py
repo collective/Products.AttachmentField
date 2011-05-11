@@ -162,4 +162,3 @@ except:
 else:
     from ooconverter import oo_to_html
     AttachmentHandler.registerHandler(OOAttachment)
-

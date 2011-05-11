@@ -59,7 +59,7 @@ class TarGzAttachment(CompressedAttachment.CompressedAttachment):
     preview_arguments = r'-tzvf %s'
     preview_encoding = ('iso-8859-15', 'utf8')
     preview_format = 'pre'
-    
+
 
 
 AttachmentHandler.registerHandler(TarGzAttachment)

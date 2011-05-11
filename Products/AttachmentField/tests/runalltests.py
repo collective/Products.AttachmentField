@@ -48,4 +48,3 @@ def test_finder(recurse, dir, names):
 if __name__ == '__main__':
     os.path.walk(os.curdir, test_finder, '-R' in sys.argv)
     TestRunner().run(suite)
-

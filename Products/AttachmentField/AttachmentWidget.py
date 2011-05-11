@@ -36,5 +36,5 @@ class AttachmentWidget(FileWidget):
         'macro' : 'attachmentfield_widget',
         'show_preview_link' : True,
         })
-    
+
     security = ClassSecurityInfo()

@@ -124,4 +124,3 @@ class IAttachmentField(IObjectField):
 
 
     # XXX have to handle the title as well ?...
-    

@@ -51,7 +51,7 @@ class MSWordAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"-c utf-8 -1 %s" # XXX SHOULD BE "-d DIR %s"
     index_encoding = "utf8"
-    
+
     preview_path = program
     preview_arguments = r"-c utf-8 -1 %s"
     preview_format = "html"
@@ -60,12 +60,12 @@ class MSWordAttachment(AttachmentHandler.AbstractHandler):
 
 # XXX TODO: BETTER PREVIEW
 
-##def cleanHTMLcode(self, htmlcode): 
-##        """ Clean style attributes from HTML """ 
-##        retidy=re.compile('style\s*=\s*([\'\"])[^\"\']*\\1',re.IGNORECASE) 
+##def cleanHTMLcode(self, htmlcode):
+##        """ Clean style attributes from HTML """
+##        retidy=re.compile('style\s*=\s*([\'\"])[^\"\']*\\1',re.IGNORECASE)
 ##        return re.sub(retidy,'',htmlcode)
 
-    
+
 
 ## XXX TODO: IMAGES MANAGEMENT
 ##

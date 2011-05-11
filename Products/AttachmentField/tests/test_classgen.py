@@ -194,7 +194,7 @@ class ClassGenTest(PloneTestCase.PloneTestCase):
             bu = field.getBaseUnit(obj)
             self.failUnless(IBaseUnit.isImplementedBy(bu),
                'Return value of %s.getBaseUnit() does not implement BaseUnit: %s' % (field.__class__, type(bu)))
-            
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite

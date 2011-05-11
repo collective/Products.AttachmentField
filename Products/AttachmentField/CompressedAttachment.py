@@ -60,7 +60,7 @@ class CompressedAttachment(AttachmentHandler.AbstractHandler):
     preview_arguments = None
     preview_encoding = None
     preview_format = None
-    
+
 
 
 AttachmentHandler.registerHandler(CompressedAttachment)

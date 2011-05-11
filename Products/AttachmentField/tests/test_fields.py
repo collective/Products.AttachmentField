@@ -227,14 +227,14 @@ class ProcessingTest(PloneTestCase.PloneTestCase, IAttachmentField.TestInterface
             dummy.Schema()['attach_doc'].get(dummy).getSize()))
         self._content = dummy
         newSecurityManager(None, current_user)
-        
+
     def unHtml(self, html):
         """
         Removes HTML markup
         """
         pt = self.portal.portal_transforms
         return pt('html_to_text', html)
-        
+
 
     #                                           #
     #                API Testing                #

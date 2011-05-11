@@ -32,9 +32,9 @@ from types import FileType, ListType, TupleType
 from zope.interface import implements
 import Acquisition
 from Acquisition import aq_base
-from Globals import Persistent
+from Persistence import Persistent
 from Globals import MessageDialog, DTMLFile      # fakes a method from a DTML file
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from AccessControl import Role
 from AccessControl import ClassSecurityInfo
 from AccessControl import Permissions
@@ -341,6 +341,3 @@ registerField(
     title='Attachment',
     description='Used for storing files with advanced features.',
 )
-
-
-

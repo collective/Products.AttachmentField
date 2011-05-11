@@ -57,7 +57,7 @@ class RTFAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"%s --nopict -t text"
     index_encoding = ("CP1252", "utf8", "latin1", )
-    
+
     preview_path = program
     preview_arguments = r"%s --nopict -t html"
     preview_format = "html"

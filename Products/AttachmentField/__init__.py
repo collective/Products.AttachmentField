@@ -71,7 +71,7 @@ def initialize(context):
     utils.ToolInit(
         PROJECTNAME + ' Tool',
         tools=(AttachmentFieldTool,),
-        product_name=PROJECTNAME,
+#        product_name=PROJECTNAME,
         icon='tool.gif').initialize(context)
 
 

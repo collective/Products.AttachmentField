@@ -225,7 +225,7 @@ class AbstractHandler(Implicit, ):
         """
         LOG.debug("converting field '%s', %s %s",
                   field.getName(), str(self.index_arguments), self.__class__.__name__)
-        
+
         index = self._convert(
             field,
             instance,
@@ -475,7 +475,7 @@ class AbstractHandler(Implicit, ):
         """
         # Open read & write streams
         cmd = "%s %s" % (program_path, arguments,)
-        LOG.debug("Converting file using '%s' program and '%s' arguments", 
+        LOG.debug("Converting file using '%s' program and '%s' arguments",
                   program_path,
                   arguments)
         idx = ""
