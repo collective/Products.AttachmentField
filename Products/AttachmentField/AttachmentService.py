@@ -38,7 +38,7 @@ import types
 import Globals
 from AccessControl import ClassSecurityInfo
 from AccessControl.Permissions import view, view_management_screens
-from Globals import InitializeClass
+from App.class_init import InitializeClass
 from OFS.Folder import Folder
 from ZPublisher.HTTPRequest import HTTPRequest
 
