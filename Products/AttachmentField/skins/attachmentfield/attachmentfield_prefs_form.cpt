@@ -38,12 +38,8 @@
           <legend i18n:translate="">Configuration</legend>
           <div
             class="field"
-            tal:define="tabindex tabindex/next;
-                        value python:request.get('contentDisposition', atool.getContentDisposition())"
-          >
-            <label
-              i18n:translate="contentDisposition"
-            >
+            tal:define="value python:request.get('contentDisposition', atool.getContentDisposition())">
+            <label i18n:translate="contentDisposition">
               Content Disposition
             </label>
 
@@ -63,7 +59,6 @@
                 name="content_disposition"
                 class="noborder"
                 tal:attributes="checked python:test(value==availableCD, 'checked', '');
-                                tabindex tabindex;
                                 value availableCD;
                                 id availableCD;
                                 "
@@ -78,12 +73,9 @@
           </div>
           <div
             class="field"
-            tal:define="tabindex tabindex/next;
-                        value python:request.get('currentFlexStorageBackend', atool.getFlexStorageBackend())"
-          >
+            tal:define="value python:request.get('currentFlexStorageBackend', atool.getFlexStorageBackend())">
             <label
-              i18n:translate="currentFlexStorageBackend"
-            >
+              i18n:translate="currentFlexStorageBackend">
               Storage Backend
             </label>
 
@@ -116,7 +108,6 @@
                 name="storage_backend"
                 class="noborder"
                 tal:attributes="checked python:test(value==availableSB, 'checked', '');
-                                tabindex tabindex;
                                 value availableSB;
                                 id availableSB;
                                 "
@@ -138,7 +129,6 @@
               class="context"
               type="submit"
               name="form.button.Save"
-              tal:attributes="tabindex tabindex/next;"
             />
           </div>
 
@@ -147,8 +137,7 @@
           <legend i18n:translate="">Information</legend>
             <div
               class="error"
-              tal:condition="python:atool.isListErroneous()"
-            >
+              tal:condition="python:atool.isListErroneous()">
               Some handlers are not working properly. Check for erroneous lines
               in the following table.<br/><br/>Note that affected content can be
               used as usual, but will not be indexed.
@@ -168,10 +157,8 @@
                   <tr
                     tal:define="
                       klass python:test(repeat['handler'].even(), 'listing odd', 'listing even');
-                      error python:test(handler['error'], 'error', '');
-                    "
-                    tal:attributes="class python:test(error, error, klass)"
-                  >
+                      error python:test(handler['error'], 'error', '');"
+                    tal:attributes="class python:test(error, error, klass)">
                     <td>
                       <img tal:attributes="src python: handler['small_icon_file']" />
                     </td>
@@ -277,14 +264,14 @@
                 name="form.button.Test"
                 value="Test"
                 i18n:attributes="value"
-              tal:attributes="tabindex tabindex/next;" />
+              />
 
               <input class="context"
                 type="submit"
                 name="form.button.Cancel"
                 value="Cancel"
                 i18n:attributes="value"
-              tal:attributes="tabindex tabindex/next;" />
+              />
             </div>
 
           </fieldset>
