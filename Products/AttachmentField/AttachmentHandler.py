@@ -23,10 +23,20 @@ __version__ = "$Revision$"
 # $Id$
 __docformat__ = 'restructuredtext'
 
-
+try: 
+    # Plone 4 and higher 
+    import plone.app.upgrade 
+    PLONE_VERSION = 4 
+except ImportError: 
+    PLONE_VERSION = 3
 from Acquisition import Implicit
-from Globals import Persistent
-from Globals import MessageDialog, DTMLFile      # fakes a method from a DTML file
+if PLONE_VERSION == 3:
+    from Globals import Persistent
+    from Globals import MessageDialog, DTMLFile      # fakes a method from a DTML file
+elif PLONE_VERSION == 4:
+    from Persistence import Persistent
+    from App.Dialogs import MessageDialog
+    from App.special_dtml import DTMLFile
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes import Field
 import App.Common

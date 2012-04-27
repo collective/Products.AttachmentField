@@ -21,6 +21,12 @@ AttachmentField
 __version__ = "$Revision$"
 __docformat__ = 'restructuredtext'
 
+try: 
+    # Plone 4 and higher 
+    import plone.app.upgrade 
+    PLONE_VERSION = 4 
+except ImportError: 
+    PLONE_VERSION = 3
 
 # Python imports
 from StringIO import StringIO
@@ -34,7 +40,10 @@ from Products.CMFCore.utils import UniqueObject
 from App.class_init import InitializeClass
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Acquisition import Implicit
-from AccessControl import Role
+if PLONE_VERSION == 3:
+    from AccessControl.Role import RoleManager
+elif PLONE_VERSION == 4:
+    from OFS.role import RoleManager
 
 from Products.AttachmentField import PROJECTNAME
 
@@ -80,7 +89,7 @@ def getTypelessAttachmentField(object):
 
 
 
-class TypelessAttachmentField(SimpleItem, BaseObject, Role.RoleManager):
+class TypelessAttachmentField(SimpleItem, BaseObject, RoleManager):
     """
     This is a sample archetype object used to manage the user's join form.
     """

@@ -62,9 +62,9 @@ def initialize(context):
 
     # Previous versions of AttachmentField put an "AttachmentService" in zope
     # control panel. We remove it if it is still present
-    cp = context._ProductContext__app.Control_Panel # argh
-    if cp_id in cp.objectIds():
-        cp._delObject(cp_id)
+    #cp = context._ProductContext__app.Control_Panel # argh
+    #if cp_id in cp.objectIds():
+    #    cp._delObject(cp_id)
 
     # Import tool
     from Products.AttachmentField.AttachmentFieldTool import AttachmentFieldTool

@@ -22,18 +22,27 @@ __version__ = "$Revision$"
 # $Id$
 __docformat__ = 'restructuredtext'
 
+try: 
+    # Plone 4 and higher 
+    import plone.app.upgrade 
+    PLONE_VERSION = 4 
+except ImportError: 
+    PLONE_VERSION = 3
 import urllib
 import string
 import os
 import os.path
 import sys
 from types import FileType, ListType, TupleType
-
 from zope.interface import implements
 import Acquisition
 from Acquisition import aq_base
 from Persistence import Persistent
-from Globals import MessageDialog, DTMLFile      # fakes a method from a DTML file
+if PLONE_VERSION == 3:
+    from Globals import MessageDialog, DTMLFile      # fakes a method from a DTML file
+elif PLONE_VERSION == 4:
+    from App.Dialogs import MessageDialog
+    from App.special_dtml import DTMLFile 
 from App.class_init import InitializeClass
 from AccessControl import Role
 from AccessControl import ClassSecurityInfo
@@ -300,7 +309,6 @@ class AttachmentField(Field.FileField):
         """
         getIcon(self, instance) => return the underlying file class icon (object)
         """
-
         name = self.getName()
         smallicon = getattr(instance, _smallicon_ % name, None)
 
