@@ -8,18 +8,6 @@
 
 * Add MD5 to check files are not corrupted
 
-1.4.6 - 2012-09-10
-==================
-
-* PyPI release
-  [aclark]
-
-1.4.5 - 2008-12-11
-==================
-
-* Added OpenXml support (requires Products.OpenXml)
-  [glenfant]
-
 1.4.4 - 2008-05-21
 ==================
 
@@ -38,7 +26,7 @@
 1.4.2 - 2007-08-20
 ==================
 
-* Fixed unit tests (glenfant)
+* Fixed unit tests (glenfant) 
 
 * Cleanup of duplicated win32 helper apps (glenfant))
 

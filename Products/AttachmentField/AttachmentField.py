@@ -18,32 +18,22 @@
 """
 AttachmentField
 """
-__version__ = "$Revision$"
-# $Id$
+__version__ = "$Revision: 65264 $"
+# $Id: AttachmentField.py 65264 2008-05-20 14:27:22Z encolpe $
 __docformat__ = 'restructuredtext'
 
-try: 
-    # Plone 4 and higher 
-    import plone.app.upgrade 
-    PLONE_VERSION = 4 
-except ImportError: 
-    PLONE_VERSION = 3
 import urllib
 import string
 import os
 import os.path
 import sys
 from types import FileType, ListType, TupleType
-from zope.interface import implements
+
 import Acquisition
 from Acquisition import aq_base
-from Persistence import Persistent
-if PLONE_VERSION == 3:
-    from Globals import MessageDialog, DTMLFile      # fakes a method from a DTML file
-elif PLONE_VERSION == 4:
-    from App.Dialogs import MessageDialog
-    from App.special_dtml import DTMLFile 
-from App.class_init import InitializeClass
+from Globals import Persistent
+from Globals import MessageDialog, DTMLFile      # fakes a method from a DTML file
+from Globals import InitializeClass
 from AccessControl import Role
 from AccessControl import ClassSecurityInfo
 from AccessControl import Permissions
@@ -67,8 +57,6 @@ from Products.Archetypes.utils import shasattr
 from Products.Archetypes.interfaces.base import IBaseUnit
 from Products.Archetypes.BaseUnit import BaseUnit
 
-from Products.Archetypes.interfaces.field import IFileField
-from Products.Archetypes.interfaces.layer import ILayerContainer
 from Products.AttachmentField.interfaces.attachmentfield import IAttachmentField
 import AttachmentHandler
 
@@ -112,9 +100,9 @@ class AttachmentField(Field.FileField):
         ObjectField.set(self, instance, value, **kwargs)
 
     """
-    implements(IFileField, ILayerContainer, IAttachmentField)
-
+    __implements__ = (Field.FileField.__implements__, IAttachmentField)
     security = ClassSecurityInfo()
+
 
     _properties = Field.FileField._properties.copy()
     _properties.update({
@@ -302,20 +290,21 @@ class AttachmentField(Field.FileField):
             LOG.debug("getIcon for %s / %s" % (self.getFilename(instance),
                                                handler.converter_type, ))
             icon = handler.getIconFile(self, instance)
-            setattr(instance, _icon_ % name, icon)
+            setattr(instance, _icon_ % name, icon, )
         return getattr(instance, icon, None)
 
     def getSmallIcon(self, instance):
         """
         getIcon(self, instance) => return the underlying file class icon (object)
         """
+
         name = self.getName()
         smallicon = getattr(instance, _smallicon_ % name, None)
 
         if not smallicon:
             handler = self._getHandler(instance)
             smallicon = handler.getSmallIconFile(self, instance)
-            setattr(instance, _smallicon_ % name, smallicon)
+            setattr(instance, _smallicon_ % name, smallicon, )
         return getattr(instance, smallicon, None)
 
     def _reset(self, instance, ):
@@ -349,3 +338,6 @@ registerField(
     title='Attachment',
     description='Used for storing files with advanced features.',
 )
+
+
+

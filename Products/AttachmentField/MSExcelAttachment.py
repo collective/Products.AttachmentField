@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 45490 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: MSExcelAttachment.py 45490 2007-07-12 08:23:45Z zegor $
 __docformat__ = 'restructuredtext'
 
 
@@ -55,7 +55,7 @@ class MSExcelAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"-xc:0-%d -xr:0-%d"%(MAX_COLS_EXCEL, MAX_ROWS_EXCEL) + r" %s"
     index_encoding = 'utf8'
-
+    
     preview_path = program
     preview_arguments = r"-nh -xc:0-%d -xr:0-%d"%(MAX_COLS_EXCEL, MAX_ROWS_EXCEL) + r" %s"
     preview_format = "html"

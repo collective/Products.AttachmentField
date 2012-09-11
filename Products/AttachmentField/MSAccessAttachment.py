@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 43145 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: MSAccessAttachment.py 43145 2007-06-04 16:49:24Z glenfant $
 __docformat__ = 'restructuredtext'
 
 
@@ -49,7 +49,7 @@ class MSAccessAttachment(AttachmentHandler.AbstractHandler):
     preview_arguments = None
     preview_encoding = None
     preview_format = None
-
+    
 
 
 AttachmentHandler.registerHandler(MSAccessAttachment)

@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 45993 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: test_classgen.py 45993 2007-07-20 16:54:37Z glenfant $
 __docformat__ = 'restructuredtext'
 
 
@@ -194,7 +194,7 @@ class ClassGenTest(PloneTestCase.PloneTestCase):
             bu = field.getBaseUnit(obj)
             self.failUnless(IBaseUnit.isImplementedBy(bu),
                'Return value of %s.getBaseUnit() does not implement BaseUnit: %s' % (field.__class__, type(bu)))
-
+            
 
 def test_suite():
     from unittest import TestSuite, makeSuite

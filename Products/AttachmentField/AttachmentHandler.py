@@ -18,25 +18,15 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 45490 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: AttachmentHandler.py 45490 2007-07-12 08:23:45Z zegor $
 __docformat__ = 'restructuredtext'
 
-try: 
-    # Plone 4 and higher 
-    import plone.app.upgrade 
-    PLONE_VERSION = 4 
-except ImportError: 
-    PLONE_VERSION = 3
+
 from Acquisition import Implicit
-if PLONE_VERSION == 3:
-    from Globals import Persistent
-    from Globals import MessageDialog, DTMLFile      # fakes a method from a DTML file
-elif PLONE_VERSION == 4:
-    from Persistence import Persistent
-    from App.Dialogs import MessageDialog
-    from App.special_dtml import DTMLFile
+from Globals import Persistent
+from Globals import MessageDialog, DTMLFile      # fakes a method from a DTML file
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes import Field
 import App.Common
@@ -235,7 +225,7 @@ class AbstractHandler(Implicit, ):
         """
         LOG.debug("converting field '%s', %s %s",
                   field.getName(), str(self.index_arguments), self.__class__.__name__)
-
+        
         index = self._convert(
             field,
             instance,
@@ -485,7 +475,7 @@ class AbstractHandler(Implicit, ):
         """
         # Open read & write streams
         cmd = "%s %s" % (program_path, arguments,)
-        LOG.debug("Converting file using '%s' program and '%s' arguments",
+        LOG.debug("Converting file using '%s' program and '%s' arguments", 
                   program_path,
                   arguments)
         idx = ""

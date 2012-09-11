@@ -20,9 +20,9 @@ This module provides an abstract layer to use portal_transforms instead of exter
 programs to convert / preview stuff.
 It's an abstract class and is meant to be overloaded in content-type specific classes.
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 43145 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: OOAttachment.py 43145 2007-06-04 16:49:24Z glenfant $
 __docformat__ = 'restructuredtext'
 
 
@@ -162,3 +162,4 @@ except:
 else:
     from ooconverter import oo_to_html
     AttachmentHandler.registerHandler(OOAttachment)
+

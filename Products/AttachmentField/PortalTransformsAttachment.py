@@ -20,9 +20,9 @@ This module provides an abstract layer to use portal_transforms instead of exter
 programs to convert / preview stuff.
 It's an abstract class and is meant to be overloaded in content-type specific classes.
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 64547 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: PortalTransformsAttachment.py 64547 2008-05-07 17:07:52Z maikroeder $
 __docformat__ = 'restructuredtext'
 
 

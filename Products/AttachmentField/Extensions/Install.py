@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 43145 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: Install.py 43145 2007-06-04 16:49:24Z glenfant $
 __docformat__ = 'restructuredtext'
 
 
@@ -76,3 +76,4 @@ def uninstall(self):
     print >> out, "Successfully uninstalled %s." % PROJECTNAME
 
     return out.getvalue()
+

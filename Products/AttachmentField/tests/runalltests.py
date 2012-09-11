@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 43145 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: runalltests.py 43145 2007-06-04 16:49:24Z glenfant $
 __docformat__ = 'restructuredtext'
 
 import os, sys
@@ -48,3 +48,4 @@ def test_finder(recurse, dir, names):
 if __name__ == '__main__':
     os.path.walk(os.curdir, test_finder, '-R' in sys.argv)
     TestRunner().run(suite)
+

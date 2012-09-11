@@ -2,22 +2,34 @@
 AttachmentField
 ###############
 
-An Archetype field that manages file attachments, to be used in place of a FileField.
+An Archetype field that manages file attachments, to be used in place
+of a FileField.
 
-AttachmentField allows you to index and preview various kinds of documents, such as MSOffice (Word, Excel, Powerpoint), PDF and more in your Archetypes based content types.
+AttachmentField allows you to index and preview various kinds of
+documents, such as MSOffice (Word, Excel, Powerpoint), PDF and more in
+your Archetypes based content types.
 
-This product replaces the former ZAttachmentAttribute from Ingeniweb (see ingeniweb.sourceforge.net).
+This product replaces the former ZAttachmentAttribute from Ingeniweb
+(see ingeniweb.sourceforge.net).
 
 Be sure to read the warnings below before using it.
 
 Warning
 #######
 
-* Due to lots of misuses of AttachmentField, be warned that it does not add any new content type by itself. AttachmentField is a product for Plone/Archetypes content types developers.
+* Due to lots of misuses of AttachmentField, be warned that it does not
+add any new content type by itself. AttachmentField is a product for
+Plone/Archetypes content types developers.
 
-* It is *strongly* discouraged to uninstall AttachmentField while configured to use FileSystemStorage. If so, all contents that use AttachmentField would be lost (even if you reinstall it later). If you want to upgrade, just reinstall it without uninstalling it.
+* It is *strongly* discouraged to uninstall AttachmentField while configured to
+use FileSystemStorage. If so, all contents that use AttachmentField would be
+lost (even if you reinstall it later). If you want to upgrade, just reinstall
+it without uninstalling it.
 
-If you need to uninstall AttachmentField, first configure it to use AttributeStorage (in ZODB) (default choice). In this case, you can then uninstall AttachmentField without loosing your content (You will need to reinstall a version of AttachmentField to access them again)
+If you need to uninstall AttachmentField, first configure it to use
+AttributeStorage (in ZODB) (default choice). In this case, you can then
+uninstall AttachmentField without loosing your content (You will need to
+reinstall a version of AttachmentField to access them again)
 
 Dependencies
 ############
@@ -43,8 +55,6 @@ Zope/Plone
 * Archetypes 1.3.7+
 
 * FileSystemStorage (only if you want to use FSS)
-
-* Products.OpenXml (optional: for MS Office 2007 files support)
 
 Applications/utilities (Unix)
 =============================
@@ -187,7 +197,7 @@ Report bugs at http://sourceforge.net/projects/ingeniweb (click the
 
 Ask for support at support@ingeniweb.com
 
------------
+------------
 
 .. _Ingeniweb: http://www.ingeniweb.com
 .. _PloneTestCase: https://svn.plone.org/svn/collective/PloneTestCase/

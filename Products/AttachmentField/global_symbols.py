@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 43145 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: global_symbols.py 43145 2007-06-04 16:49:24Z glenfant $
 __docformat__ = 'restructuredtext'
 
 
@@ -62,11 +62,3 @@ attachmentfield_prefs_configlet = {
     'permission': (CMFCorePermissions.ManagePortal,),
     'imageUrl': 'AttachmentField.png',
     }
-
-# OpenXml support
-try:
-    import Products.OpenXml
-except ImportError, e:
-    HAS_OPENXML = False
-else:
-    HAS_OPENXML = True

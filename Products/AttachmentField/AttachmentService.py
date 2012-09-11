@@ -21,9 +21,9 @@ services available (plugins, ...).
 
 Some of this is taken from PlacelessTranslationService's logic.
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 43145 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: AttachmentService.py 43145 2007-06-04 16:49:24Z glenfant $
 __docformat__ = 'restructuredtext'
 
 
@@ -38,7 +38,7 @@ import types
 import Globals
 from AccessControl import ClassSecurityInfo
 from AccessControl.Permissions import view, view_management_screens
-from App.class_init import InitializeClass
+from Globals import InitializeClass
 from OFS.Folder import Folder
 from ZPublisher.HTTPRequest import HTTPRequest
 
@@ -331,3 +331,6 @@ class AttachmentService(Folder):
 
 
 InitializeClass(AttachmentService)
+
+
+

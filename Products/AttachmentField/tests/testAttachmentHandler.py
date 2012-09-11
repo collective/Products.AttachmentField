@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 45993 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: testAttachmentHandler.py 45993 2007-07-20 16:54:37Z glenfant $
 __docformat__ = 'restructuredtext'
 
 from common import *
@@ -33,14 +33,14 @@ class TestAbstractHandler(PloneTestCase.PloneTestCase):
     def afterSetUp(self):
         PloneTestCase.PloneTestCase.afterSetUp(self)
         self.abstract_handler = AttachmentHandler.AbstractHandler()
-
+        
 
     def testHtmlStripBodyStart(self):
         sample = """
         <html> <head> </head>
         <body>Stripped body start"""
         expected = """Stripped body start"""
-
+        
         result = self.abstract_handler._strip_body_start.sub('', sample)
         self.assertEqual(result, expected)
 
@@ -69,3 +69,4 @@ def test_suite():
     suite = TestSuite()
     suite.addTest(makeSuite(TestAbstractHandler))
     return suite
+

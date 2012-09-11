@@ -18,31 +18,31 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 23006 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: striphtml.py 23006 2006-05-02 20:25:43Z encolpe $
 __docformat__ = 'restructuredtext'
 
 import sgmllib, string
 
 class StrippingParser(sgmllib.SGMLParser):
-
+    
     from htmlentitydefs import entitydefs # replace entitydefs from sgmllib
-
+    
     def __init__(self):
         sgmllib.SGMLParser.__init__(self)
         self.result = ""
-        self.endTagList = []
-
+        self.endTagList = [] 
+        
     def handle_data(self, data):
         if data:
             self.result = self.result + data
 
     def handle_charref(self, name):
         self.result = "%s&amp;#%s;" % (self.result, name)
-
+        
     def handle_entityref(self, name):
-        if self.entitydefs.has_key(name):
+        if self.entitydefs.has_key(name): 
             x = ';'
         else:
             # this breaks unstandard entities that end with ';'
@@ -50,18 +50,18 @@ class StrippingParser(sgmllib.SGMLParser):
         self.result = "%s&amp;%s%s" % (self.result, name, x)
 
     valid_tags = ('b', 'a', 'i', 'br', 'p', 'span', 'div', 'hr', 'table', 'tr', 'td', 'th', )
-
+    
     def unknown_starttag(self, tag, attrs):
         """ Delete all tags except for legal ones """
-        if tag in self.valid_tags:
+        if tag in self.valid_tags:       
             self.result = self.result + '&lt;' + tag
             for k, v in attrs:
                 if string.lower(k[0:2]) != 'on' and string.lower(v[0:10]) != 'javascript':
                     self.result = '%s %s="%s"' % (self.result, k, v)
             endTag = '&lt;/%s&gt;' % tag
-            self.endTagList.insert(0,endTag)
+            self.endTagList.insert(0,endTag)    
             self.result = self.result + '&gt;'
-
+                
     def unknown_endtag(self, tag):
         if tag in self.valid_tags:
             self.result = "%s&lt;/%s&gt;" % (self.result, tag)
@@ -71,16 +71,16 @@ class StrippingParser(sgmllib.SGMLParser):
     def cleanup(self):
         """ Append missing closing tags """
         for j in range(len(self.endTagList)):
-            self.result = self.result + self.endTagList[j]
+                self.result = self.result + self.endTagList[j]    
 
-
+        
 def clean(s):
     parser = StrippingParser()
     parser.feed(s)
     parser.close()
     parser.cleanup()
     return parser.result
-
+    
 
 # New version
 
@@ -91,10 +91,10 @@ class ExtractText(NullFormatter):
         NullFormatter.__init__(self)
         self.result = []
 
-    def add_flowing_data(self, data):
+    def add_flowing_data(self, data): 
         self.result.append(data)
 
-    def add_literal_data(self, data):
+    def add_literal_data(self, data): 
         self.result.append(data)
 
     def bark(self):
@@ -104,3 +104,4 @@ def strip(s):
     p = htmllib.HTMLParser(ExtractText())
     p.feed(s)
     return p.formatter.bark()
+    

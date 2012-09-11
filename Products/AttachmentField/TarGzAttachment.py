@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 25863 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: TarGzAttachment.py 25863 2006-07-07 14:47:14Z manuco $
 __docformat__ = 'restructuredtext'
 
 
@@ -59,7 +59,7 @@ class TarGzAttachment(CompressedAttachment.CompressedAttachment):
     preview_arguments = r'-tzvf %s'
     preview_encoding = ('iso-8859-15', 'utf8')
     preview_format = 'pre'
-
+    
 
 
 AttachmentHandler.registerHandler(TarGzAttachment)

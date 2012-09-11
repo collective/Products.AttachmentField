@@ -18,14 +18,14 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 43145 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: attachmentfield.py 43145 2007-06-04 16:49:24Z glenfant $
 __docformat__ = 'restructuredtext'
 
-from zope.interface import Attribute
+from Interface import Attribute
 try:
-    from zope.interface import Interface
+    from Interface import Interface
 except ImportError:
     # for Zope versions before 2.6.0
     from Interface import Base as Interface
@@ -124,3 +124,4 @@ class IAttachmentField(IObjectField):
 
 
     # XXX have to handle the title as well ?...
+    

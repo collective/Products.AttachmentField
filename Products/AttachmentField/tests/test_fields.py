@@ -18,9 +18,9 @@
 """
 AttachmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 45993 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: test_fields.py 45993 2007-07-20 16:54:37Z glenfant $
 __docformat__ = 'restructuredtext'
 
 from os import curdir
@@ -201,7 +201,7 @@ class ProcessingTest(PloneTestCase.PloneTestCase, IAttachmentField.TestInterface
 
     def afterSetUp(self):
         PloneTestCase.PloneTestCase.afterSetUp(self)
-        registerType(Dummy, 'AttachmentFieldTest')
+        registerType(Dummy)
         content_types, constructors, ftis = process_types(listTypes(), PKG_NAME)
         gen_dummy()
         self.makeDummy()
@@ -227,14 +227,14 @@ class ProcessingTest(PloneTestCase.PloneTestCase, IAttachmentField.TestInterface
             dummy.Schema()['attach_doc'].get(dummy).getSize()))
         self._content = dummy
         newSecurityManager(None, current_user)
-
+        
     def unHtml(self, html):
         """
         Removes HTML markup
         """
         pt = self.portal.portal_transforms
         return pt('html_to_text', html)
-
+        
 
     #                                           #
     #                API Testing                #

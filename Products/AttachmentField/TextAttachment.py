@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 43145 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: TextAttachment.py 43145 2007-06-04 16:49:24Z glenfant $
 __docformat__ = 'restructuredtext'
 
 
@@ -49,7 +49,7 @@ class TextAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"%s"
     index_encoding = None
-
+    
     preview_path = program
     preview_arguments = r"%s"
     preview_encoding = None

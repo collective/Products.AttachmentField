@@ -18,7 +18,6 @@
 import StringIO
 import itertools
 from AccessControl import ClassSecurityInfo
-from zope.interface import implements
 
 try:
     from Products.CMFCore import permissions as CMFCorePermissions
@@ -40,15 +39,9 @@ try:
     savepoint = transaction.savepoint
 except ImportError:
     def savepoint(**kwargs):
-        get_transaction().commit(1)
+         get_transaction().commit(1)
 
 SAVEPOINT_INTERVAL = 100
-
-try :
-    from iw.fss.FileSystemStorage  import FileSystemStorage
-    fssproduct = 'iw.fss'
-except :
-    fssproduct = 'Products.FileSystemStorage'
 
 ## This list contains all the storage that can be used
 ## First data is the import statement. If import fails, the next storage is tried
@@ -56,7 +49,7 @@ except :
 ## third is a flog indicating if this is the default choice
 SUPPORTED_FLEX_STORAGE = (
     ("from Products.Archetypes.Storage import AttributeStorage", "AttributeStorage"),
-    ("from %s.FileSystemStorage import FileSystemStorage" %fssproduct, "FileSystemStorage"),
+    ("from Products.FileSystemStorage.FileSystemStorage import FileSystemStorage", "FileSystemStorage"),
 )
 
 
@@ -66,7 +59,8 @@ class FlexStorage(StorageLayer):
         content on demand. In example, it can switch data from ZODB (Attribute Storage)
         to file system (FSS).
     """
-    implements(IStorage, ILayer)
+
+    __implements__ = StorageLayer.__implements__
 
     ##### WARNING #####
     # All methods or attribute MUST be different from anything that can be found
@@ -206,7 +200,7 @@ class FlexStorage(StorageLayer):
     security.declarePrivate('migrateContent')
     def migrateContent(self, old_storage, new_storage, obj, fieldnames, out):
         """Change the storage backend of one content.
-
+            
         @param old_storage: old storage where we get the data (and remove it)
         @param new_storage: new storage where we put this data
         @param obj: object to work on it
@@ -246,3 +240,4 @@ class FlexStorage(StorageLayer):
                 f.set(obj, "DELETE_FILE")
 
             print >> out, ".",
+

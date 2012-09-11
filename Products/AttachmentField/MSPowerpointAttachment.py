@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 45490 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: MSPowerpointAttachment.py 45490 2007-07-12 08:23:45Z zegor $
 __docformat__ = 'restructuredtext'
 
 
@@ -52,7 +52,7 @@ class MSPowerpointAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"%s"
     index_encoding = 'utf8'
-
+    
     preview_path = program
     preview_arguments = r"%s"
     preview_encoding = 'utf8'

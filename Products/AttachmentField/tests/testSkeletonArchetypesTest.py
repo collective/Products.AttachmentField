@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 45993 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: testSkeletonArchetypesTest.py 45993 2007-07-20 16:54:37Z glenfant $
 __docformat__ = 'restructuredtext'
 
 from common import *

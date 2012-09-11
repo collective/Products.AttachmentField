@@ -18,9 +18,9 @@
 """
 AttachmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 45992 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: common.py 45992 2007-07-20 16:52:56Z glenfant $
 __docformat__ = 'restructuredtext'
 
 from Testing import ZopeTestCase
@@ -97,7 +97,7 @@ def gen_class(klass, schema=None):
     """
     if schema is not None:
         klass.schema = schema.copy()
-    registerType(klass, 'AttachmentFieldTest')
+    registerType(klass)
     content_types, constructors, ftis = process_types(listTypes(), PKG_NAME)
 
 def mkDummyInContext(klass, oid, context, schema=None):

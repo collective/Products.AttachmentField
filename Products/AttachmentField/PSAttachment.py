@@ -53,7 +53,7 @@ class PSAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = '%s'
     index_encoding = "iso-8859-15"
-
+    
     preview_path = program
     preview_arguments = '%s'
     preview_format = "text"

@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 25863 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: RTFAttachment.py 25863 2006-07-07 14:47:14Z manuco $
 __docformat__ = 'restructuredtext'
 
 
@@ -57,7 +57,7 @@ class RTFAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"%s --nopict -t text"
     index_encoding = ("CP1252", "utf8", "latin1", )
-
+    
     preview_path = program
     preview_arguments = r"%s --nopict -t html"
     preview_format = "html"

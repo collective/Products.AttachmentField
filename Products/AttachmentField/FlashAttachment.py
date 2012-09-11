@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 25863 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: FlashAttachment.py 25863 2006-07-07 14:47:14Z manuco $
 __docformat__ = 'restructuredtext'
 
 
@@ -49,7 +49,8 @@ class FlashAttachment(AttachmentHandler.AbstractHandler):
     preview_arguments = None
     preview_encoding = None
     preview_format = None
-
+    
 
 
 AttachmentHandler.registerHandler(FlashAttachment)
+

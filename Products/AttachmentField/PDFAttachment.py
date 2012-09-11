@@ -18,9 +18,9 @@
 """
 AttchmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 43145 $"
 # $Source: /cvsroot/ingeniweb/PloneSubscription/SubscriptionTool.py,v $
-# $Id$
+# $Id: PDFAttachment.py 43145 2007-06-04 16:49:24Z glenfant $
 __docformat__ = 'restructuredtext'
 
 
@@ -53,7 +53,7 @@ class PDFAttachment(AttachmentHandler.AbstractHandler):
     index_path = program
     index_arguments = r"%s -enc UTF-8 -"
     index_encoding = "utf8"
-
+    
     preview_path = program
     preview_arguments = r"%s -enc UTF-8 -layout -"
     preview_format = "text"

@@ -18,16 +18,16 @@
 """
 AttachmentField
 """
-__version__ = "$Revision$"
+__version__ = "$Revision: 43145 $"
 __docformat__ = 'restructuredtext'
 
 import os.path
 import logging
 LOG = logging.getLogger('AttachmentField')
-
+  
 if os.path.isfile(os.path.join(__path__[0], 'debug.txt')):
     LOG.setLevel(logging.DEBUG)
-
+    
 LOG.info("Logging level set to %s" , (
     logging.getLevelName(LOG.getEffectiveLevel()),)
          )
@@ -62,16 +62,16 @@ def initialize(context):
 
     # Previous versions of AttachmentField put an "AttachmentService" in zope
     # control panel. We remove it if it is still present
-    #cp = context._ProductContext__app.Control_Panel # argh
-    #if cp_id in cp.objectIds():
-    #    cp._delObject(cp_id)
+    cp = context._ProductContext__app.Control_Panel # argh
+    if cp_id in cp.objectIds():
+        cp._delObject(cp_id)
 
     # Import tool
     from Products.AttachmentField.AttachmentFieldTool import AttachmentFieldTool
     utils.ToolInit(
         PROJECTNAME + ' Tool',
         tools=(AttachmentFieldTool,),
-#        product_name=PROJECTNAME,
+        product_name=PROJECTNAME,
         icon='tool.gif').initialize(context)
 
 
@@ -99,8 +99,6 @@ import RTFAttachment
 import OOAttachment
 import OO2Attachment
 import PSAttachment
+import PortalTransformsAttachment
 import FlashAttachment
 import PhotoshopAttachment
-if HAS_OPENXML:
-    import OpenXmlAttachment
-import PortalTransformsAttachment
