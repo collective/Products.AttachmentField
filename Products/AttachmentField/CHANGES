@@ -8,6 +8,12 @@
 
 * Add MD5 to check files are not corrupted
 
+1.4.6 - 2012-09-10
+==================
+
+* PyPI release
+  [aclark]
+
 1.4.5 - 2008-12-11
 ==================
 
